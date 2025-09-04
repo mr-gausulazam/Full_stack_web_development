@@ -29,6 +29,3 @@ The app uses the Milligram CSS library for a simple and clean layout.
 
 Tasks are displayed as a list, with "Mark as Done/Undone" and "Delete" buttons next to each task.
 
-Step 3: Security Consideration
-
-htmlspecialchars() is used when displaying tasks to prevent XSS vulnerabilities by escaping any special characters in user input.
