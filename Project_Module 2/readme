@@ -1,0 +1,29 @@
+Explanation:
+
+Menu System:
+
+The showMenu() function displays the options: Start Quiz or Exit.
+
+We use fgets(STDIN) to read user input, and trim() is used to remove any leading/trailing spaces.
+
+The program continues to show the menu in a while(true) loop, which ensures the program keeps running until the user chooses to exit.
+
+Quiz Logic:
+
+The startQuiz() function contains an array of questions and answers. Each question is an associative array with keys 'question' and 'answer'.
+
+The program then loops through each question, presenting the user with the question and checking if their input matches the correct answer (case-insensitive).
+
+For each correct answer, the score increments by 1, and at the end of the quiz, the final score is displayed.
+
+Input Handling:
+
+trim(fgets(STDIN)) is used to read user input from the terminal and remove any unwanted spaces.
+
+The strtolower() function ensures the input is compared in a case-insensitive way.
+
+Program Flow:
+
+The loop will continue until the user chooses to exit (option 2 in the menu).
+
+If the user enters an invalid menu choice, the program will prompt them to select either option 1 or 2.
