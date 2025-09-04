@@ -1,1 +1,15 @@
+[
+    {
+        "name": "Toyota Corolla",
+        "type": "Sedan",
+        "price": 20000,
+        "image": "https://example.com/toyota-corolla.jpg"
+    },
+    {
+        "name": "Honda Civic",
+        "type": "Sedan",
+        "price": 22000,
+        "image": "https://example.com/honda-civic.jpg"
+    }
+]
 
