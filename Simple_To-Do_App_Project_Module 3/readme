@@ -1,1 +1,34 @@
 
+Explanation:
+
+Reading and Saving Tasks:
+
+The getTasks() function reads the tasks from tasks.json and returns them as an array.
+
+The saveTasks() function saves the tasks array back into tasks.json after adding, deleting, or updating tasks.
+
+Add Task:
+
+When a task is added via the form, the task is sanitized using htmlspecialchars() to avoid XSS. It is then saved to tasks.json.
+
+Mark Task as Done/Undone:
+
+Clicking the "Mark as Done/Undone" link toggles the done status of the task. If the task is marked as done, a line-through is applied using CSS (task-done class).
+
+Delete Task:
+
+Clicking the "Delete" link removes the task from the array and then updates the tasks.json file.
+
+Page Reload:
+
+After performing an action (adding, marking, or deleting a task), the page is reloaded using header('Location: index.php');.
+
+UI Design:
+
+The app uses the Milligram CSS library for a simple and clean layout.
+
+Tasks are displayed as a list, with "Mark as Done/Undone" and "Delete" buttons next to each task.
+
+Step 3: Security Consideration
+
+htmlspecialchars() is used when displaying tasks to prevent XSS vulnerabilities by escaping any special characters in user input.
