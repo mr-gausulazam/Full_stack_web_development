@@ -1,1 +1,39 @@
+Question A: Find the 3rd lowest salary from the employee table
+
+-- 3rd lowest salary
+SELECT DISTINCT salary
+FROM employee
+ORDER BY salary ASC
+LIMIT 1 OFFSET 2;
+
+
+Question B: Find 2nd lowest salary using subquery
+
+SELECT MIN(salary) AS second_lowest_salary
+FROM employee
+WHERE salary > (SELECT MIN(salary) FROM employee);
+
+
+Question C: Pending balance query with conditions
+
+SELECT 
+    OPEN_BRANCH_ID,
+    AVG(PENDING_BALANCE) AS avg_pending_balance
+FROM account
+WHERE STATUS = 'active'
+GROUP BY OPEN_BRANCH_ID
+HAVING AVG(PENDING_BALANCE) < 4300;
+
+Question D: Pagination query
+-- Get page 2, 10 records per page
+SELECT *
+FROM employee
+ORDER BY employee_id
+LIMIT 10 OFFSET 10;
+
+Question E: Count total number of branches including head branch
+
+SELECT COUNT(DISTINCT OPEN_BRANCH_ID) AS total_branches
+FROM account;
+
 
