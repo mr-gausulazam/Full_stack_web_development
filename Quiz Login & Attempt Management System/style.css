@@ -1,1 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#loginSection, #quizSection, #resultSection {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="email"], button {
+    padding: 10px;
+    margin: 5px;
+}
 
