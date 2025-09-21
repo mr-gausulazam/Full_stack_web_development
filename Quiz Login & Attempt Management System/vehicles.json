@@ -1,1 +1,5 @@
+[
+    { "name": "Car 1", "type": "Sedan", "year": 2020 },
+    { "name": "Car 2", "type": "SUV", "year": 2021 }
+]
 
