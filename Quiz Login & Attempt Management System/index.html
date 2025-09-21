@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Login & Attempt Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loginSection">
+        <h2>Login to Start Quiz</h2>
+        <input type="text" id="username" placeholder="Enter Name" required>
+        <input type="email" id="email" placeholder="Enter Email" required>
+        <button id="loginButton">Login</button>
+    </div>
+
+    <div id="quizSection" style="display: none;">
+        <h2>Welcome, <span id="userNameDisplay"></span></h2>
+        <h3>Attempt: <span id="attemptCount">0</span>/10</h3>
+        <form id="quizForm">
+            <p>Question 1:</p>
+            <input type="radio" name="q1" value="A"> A<br>
+            <input type="radio" name="q1" value="B"> B<br>
+            <input type="radio" name="q1" value="C"> C<br>
+            <input type="radio" name="q1" value="D"> D<br>
+            <!-- Add 9 more questions similarly -->
+            <button type="submit">Submit Quiz</button>
+        </form>
+        <div id="timer">Time left: 20:00</div>
+    </div>
+
+    <div id="resultSection" style="display: none;">
+        <h3>Your Score: <span id="score">0</span></h3>
+        <button id="logoutButton">Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
