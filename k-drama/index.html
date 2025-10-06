@@ -1,1 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Drama Directory</title>
+  <style>
+    /* CSS to style the page and the K-Drama cards */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    #total-count {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #total-count h2 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    #kdramas-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .card strong {
+      color: #0073e6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #333;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Template Header -->
+  <header>
+    <h1>K-Drama Directory</h1>
+    <p>Explore all your favorite K-Drama series</p>
+  </header>
+
+  <main>
+    <section id="total-count">
+      <h2>Total Dramas: <span id="count">0</span></h2>
+    </section>
+
+    <section id="kdramas-list">
+      <!-- Dynamically generated K-Drama cards will appear here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 K-Drama Fan</p>
+  </footer>
+
+  <!-- JavaScript Section -->
+  <script>
+    const kdramas = [
+      {
+        title: "Crash Landing on You",
+        year: 2019,
+        genre: "Romance, Comedy",
+        rating: 8.7,
+        episodes: 16
+      },
+      {
+        title: "Itaewon Class",
+        year: 2020,
+        genre: "Drama, Business",
+        rating: 8.2,
+        episodes: 16
+      },
+      {
+        title: "Vincenzo",
+        year: 2021,
+        genre: "Action, Comedy",
+        rating: 8.6,
+        episodes: 20
+      },
+      {
+        title: "Goblin",
+        year: 2016,
+        genre: "Fantasy, Romance",
+        rating: 8.9,
+        episodes: 16
+      },
+      {
+        title: "It's Okay to Not Be Okay",
+        year: 2020,
+        genre: "Drama, Romance",
+        rating: 8.6,
+        episodes: 16
+      },
+      {
+        title: "When the Stars Gossip",
+        year: 2025,
+        genre: "Sci-Fi, Romance",
+        rating: 8.4,
+        episodes: 16
+      },
+      {
+        title: "Genie, Make a Wish",
+        year: 2025,
+        genre: "Fantasy, Romance",
+        rating: 8.7,
+        episodes: 12
+      },
+      {
+        title: "Mari and the Odd Dads",
+        year: 2025,
+        genre: "Family, Comedy",
+        rating: 8.2,
+        episodes: 50
+      },
+      {
+        title: "Fated Hearts",
+        year: 2025,
+        genre: "Historical, Romance",
+        rating: 8.5,
+        episodes: 38
+      },
+      {
+        title: "The Dream Life of Mr. Kim",
+        year: 2025,
+        genre: "Workplace, Comedy",
+        rating: 8.3,
+        episodes: 12
+      },
+      {
+        title: "The Witch",
+        year: 2025,
+        genre: "Mystery, Romance",
+        rating: 8.0,
+        episodes: 10
+      },
+      {
+        title: "Law and the City",
+        year: 2025,
+        genre: "Legal Drama",
+        rating: 8.1,
+        episodes: 12
+      },
+      {
+        title: "Love for Love's Sake",
+        year: 2025,
+        genre: "Fantasy, Romance",
+        rating: 8.4,
+        episodes: 8
+      },
+      {
+        title: "Newtopia",
+        year: 2025,
+        genre: "Romantic Fantasy, Zombie Comedy",
+        rating: 7.9,
+        episodes: 8
+      },
+      {
+        title: "The Bangkok Boy",
+        year: 2025,
+        genre: "Crime, Boys' Love, Drama",
+        rating: 7.7,
+        episodes: 12
+      }
+    ];
+
+    // Helper function to get a random emoji
+    function getRandomEmoji() {
+      const emojis = ["😊", "😍", "😎", "🥺", "🤩", "💖", "🥰", "😢", "😌"];
+      const randomIndex = Math.floor(Math.random() * emojis.length);
+      return emojis[randomIndex];
+    }
+
+    // Function to generate the K-Drama cards
+    function generateKDramaCards() {
+      const kdramasList = document.getElementById("kdramas-list");
+      kdramasList.innerHTML = ""; // Clear existing cards
+
+      kdramas.forEach(drama => {
+        // Create a new card element for each drama
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        // Random emoji
+        const emoji = getRandomEmoji();
+
+        // Set the inner HTML content of the card
+        card.innerHTML = `
+          <div class="card-content">
+            <h3>${emoji} ${drama.title}</h3>
+            <p><strong>Year:</strong> ${drama.year}</p>
+            <p><strong>Genre:</strong> ${drama.genre}</p>
+            <p><strong>Rating:</strong> ${drama.rating}</p>
+            <p><strong>Episodes:</strong> ${drama.episodes}</p>
+          </div>
+        `;
+
+        // Append the card to the kdramas list section
+        kdramasList.appendChild(card);
+      });
+
+      // Update the total count of dramas
+      document.getElementById("count").textContent = kdramas.length;
+    }
+
+    // Call the function to generate the cards on page load
+    window.onload = generateKDramaCards;
+  </script>
+
+</body>
+</html>
 
